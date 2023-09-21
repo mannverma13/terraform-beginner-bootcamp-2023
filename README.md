@@ -281,3 +281,5 @@ Provide the following code (replace your token in the file):
   }
 }
 ``````
+
+To fix the issue we have created a bash script [bin/generate_tfrc_credentials](bin/generate_tfrc_credentials)
