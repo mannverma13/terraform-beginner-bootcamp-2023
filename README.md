@@ -247,3 +247,37 @@ If you lose this file, you lose knowning the state of your infrastructure.
 `.terraform` directory contains binaries of terraform providers.
 
 While creating S3 bucket using terraform random provider, make sure we are creating a lower case only bucket name as S3 doesn't support upper case bucket name.
+
+###  Migrating local state file to remote/terraform cloud 
+
+First step to add organization and workspaces details create in terraform cloud to main.tf file.
+2nd step to migrate local state file created after creating a S3 bucket to terraform cloud using terraform init command . it will check if there is a change and migrate if you do apply.
+
+#### Issues with Terraform Cloud Login and Gitpod Workspace
+
+When attempting to run `terraform login` it will launch bash a wiswig view to generate a token. However it does not work expected in Gitpod VsCode in the browser.
+
+The workaround is manually generate a token in Terraform Cloud
+
+```
+https://app.terraform.io/app/settings/tokens?source=terraform-login
+```
+
+Then create open the file manually here:
+
+```sh
+touch /home/gitpod/.terraform.d/credentials.tfrc.json
+open /home/gitpod/.terraform.d/credentials.tfrc.json
+```
+
+Provide the following code (replace your token in the file):
+
+```json
+{
+  "credentials": {
+    "app.terraform.io": {
+      "token": "YOUR-TERRAFORM-CLOUD-TOKEN"
+    }
+  }
+}
+``````
