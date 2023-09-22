@@ -283,3 +283,9 @@ Provide the following code (replace your token in the file):
 ``````
 
 To fix the issue we have created a bash script [bin/generate_tfrc_credentials](bin/generate_tfrc_credentials)
+
+###  Setting tf alias for terraform
+
+ create a bash script [bin/get_tf_alias](bin/et_tf_alias) for creating and alias for terraform . This scripts add al alias in ~/. bash_profile .
+
+
