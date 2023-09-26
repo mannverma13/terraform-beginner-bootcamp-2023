@@ -30,8 +30,6 @@
       - [Issues with Terraform Cloud Login and Gitpod Workspace](#issues-with-terraform-cloud-login-and-gitpod-workspace)
     + [Setting tf alias for terraform](#setting-tf-alias-for-terraform)
 
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
-
 ## Semantic Versioning
 
 This project is going utilize semantic versioning for its tagging.
