@@ -13,12 +13,12 @@ terraform {
   #    name = "terra-house-1"
   #  }
   #}
-  #cloud {
-  #  organization = "Manish_Terraform"
-  #  workspaces {
-  #    name = "terra-house-1"
-  #  }
-  #}
+  cloud {
+    organization = "Manish_Terraform"
+    workspaces {
+      name = "terra-house-1"
+    }
+  }
 
 }
 
@@ -28,25 +28,40 @@ provider "terratowns" {
   token = var.terratowns_access_token
 }
 
-module "terrahouse_aws" {
-  source = "./modules/terrahouse_aws"
+module "home_avatar_hosting" {
+  source = "./modules/terrahome_aws"
   user_uuid = var.teacherseat_user_uuid
-  index_html_filepath = var.index_html_filepath
-  error_html_filepath = var.error_html_filepath
-  content_version = var.content_version
-  assets_path = var.assets_path
+  public_path = var.avatar.public_path
+  content_version = var.avatar.content_version
 }
 
 resource "terratowns_home" "home" {
-  name = "How to play Arcanum in 2023!"
+  name = "Avatar the last Airbender!"
   description = <<DESCRIPTION
-Arcanum is a game from 2001 that shipped with alot of bugs.
-Modders have removed all the originals making this game really fun
-to play (despite that old look graphics). This is my guide that will
-show you how to play arcanum without spoiling the plot.
+Avatar: The Last Airbender takes place in a fantasy world that is home
+to humans, fantastic animals, and spirits. Human civilization is divided
+into four nations: the Water Tribes, the Earth Kingdom, the Fire Nation,
+and the Air Nomads.
 DESCRIPTION
-  domain_name = module.terrahouse_aws.cloudfront_url
+  domain_name = module.home_avatar_hosting.domain_name
   town = "missingo"
-  content_version = 1
+  content_version = var.avatar.content_version
+}
+module "home_payday_hosting" {
+  source = "./modules/terrahome_aws"
+  user_uuid = var.teacherseat_user_uuid
+  public_path = var.payday.public_path
+  content_version = var.payday.content_version
 }
 
+resource "terratowns_home" "home_payday" {
+  name = "Making your Payday Bar"
+  description = <<DESCRIPTION
+Since I really like Payday candy bars but they cost so much to import
+into Canada, I decided I would see how I could my own Paydays bars,
+and if they are most cost effective.
+DESCRIPTION
+  domain_name = module.home_payday_hosting.domain_name
+  town = "missingo"
+  content_version = var.payday.content_version
+}
