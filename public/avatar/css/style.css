@@ -1,0 +1,41 @@
+
+
+body {
+    background-image:   linear-gradient(45deg, 
+                rgba(245,70,66, 0.75), 
+                rgba(8,83,156, 0.75)),url(
+  "../assets/avatar.jpg") ;
+  background-repeat: no-repeat;
+  background-position: center top;
+  } 
+
+h1{margin: 50px auto 0 auto;
+font-family: "sacramento", cursive;
+font-size: 5.625rem;
+color: #380000 ;
+}
+
+h2{
+   font-family: "montserrat", sans-serif; 
+   font-size:  1.5rem;
+   color: #380000 ;
+   font-weight: normal;
+}
+
+.top{
+    text-align: center;
+    position: relative;
+    padding: 100px;
+}
+
+.character{
+    
+    height: 150px;
+    width: 200px;
+    left: 100px;
+    bottom: 50px;
+    }
+       
+.character2{
+        margin-left: 400px; 
+}      
